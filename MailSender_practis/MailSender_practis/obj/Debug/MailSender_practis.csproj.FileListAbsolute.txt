@@ -1,0 +1,15 @@
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\MailSender_practis.exe.config
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\MailSender_practis.exe
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\MailSender_practis.pdb
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.csprojAssemblyReference.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MainWindow.g.cs
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\App.g.cs
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis_MarkupCompile.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis_MarkupCompile.lref
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MainWindow.baml
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.g.resources
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.Properties.Resources.resources
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.csproj.GenerateResource.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.csproj.CoreCompileInputs.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.exe
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.pdb

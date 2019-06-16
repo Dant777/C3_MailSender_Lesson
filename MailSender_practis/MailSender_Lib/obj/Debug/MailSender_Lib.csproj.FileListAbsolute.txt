@@ -1,0 +1,2 @@
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_Lib\obj\Debug\MailSender_Lib.csprojAssemblyReference.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_Lib\obj\Debug\MailSender_Lib.csproj.CoreCompileInputs.cache
