@@ -13,3 +13,7 @@ F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\Ma
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.csproj.CoreCompileInputs.cache
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.exe
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.pdb
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\FontAwesome.WPF.dll
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\FontAwesome.WPF.xml
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\MailSender_practis.csproj.CopyComplete
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\App.baml

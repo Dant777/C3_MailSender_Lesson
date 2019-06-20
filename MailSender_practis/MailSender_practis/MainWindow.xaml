@@ -1,32 +1,300 @@
-﻿<Window x:Class="MailSender_practis.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MailSender_practis"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1024">
+﻿<Window
+    x:Class="MailSender_practis.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:local="clr-namespace:MailSender_practis"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1024"
+    Height="500"
+    mc:Ignorable="d">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Создать"></MenuItem>
-                <MenuItem Header="Открыть"></MenuItem>
-                <MenuItem Header="Сохранить"></MenuItem>
-                <MenuItem Header="Закрыть"></MenuItem>
-                <Separator></Separator>
-                <MenuItem Header="Выход" Click="Exit_Click"></MenuItem>
+                <MenuItem Header="Создать" />
+                <MenuItem Header="Открыть" />
+                <MenuItem Header="Сохранить" />
+                <MenuItem Header="Закрыть" />
+                <Separator />
+                <MenuItem Click="Exit_Click" Header="Выход" />
             </MenuItem>
-            <MenuItem Header="Сервис" IsEnabled="False"></MenuItem>
-            <MenuItem Header="Помощь" IsEnabled="False"></MenuItem>
+            <MenuItem Header="Сервис" IsEnabled="False" />
+            <MenuItem Header="Помощь" IsEnabled="False" />
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <TextBlock>Ready Ready</TextBlock>
         </StatusBar>
         <TabControl>
-            <TabItem Header="Списки"></TabItem>
-            <TabItem Header="Планировщик"></TabItem>
-            <TabItem Header="Почта"></TabItem>
-            <TabItem Header="Статистика"></TabItem>
+            <TabItem Header="Списки">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <ToolBarTray Grid.Row="0">
+                        <ToolBar>
+                            <Label>Сервера</Label>
+                            <ComboBox
+                                MinWidth="100"
+                                MaxWidth="120"
+                                SelectedIndex="0">
+                                <ComboBoxItem>Server 1</ComboBoxItem>
+                                <ComboBoxItem>Server 2</ComboBoxItem>
+                                <ComboBoxItem>Server 3</ComboBoxItem>
+                            </ComboBox>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Foreground="Green"
+                                        Icon="Plus">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock Text="Добавить" />
+                                </StackPanel>
+                            </Button>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Foreground="Blue"
+                                        Icon="Pencil">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock Text="Редактировать" />
+                                </StackPanel>
+                            </Button>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Foreground="Red"
+                                        Icon="Times">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock Text="Удалить" />
+                                </StackPanel>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1" BandIndex="0">
+                            <Label>Отправители</Label>
+                            <ComboBox
+                                MinWidth="100"
+                                MaxWidth="120"
+                                SelectedIndex="0">
+                                <ComboBoxItem>Отправитель 1</ComboBoxItem>
+                                <ComboBoxItem>Отправитель 2</ComboBoxItem>
+                                <ComboBoxItem>Отправитель 3</ComboBoxItem>
+                            </ComboBox>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Foreground="Green"
+                                        Icon="Plus">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock>Добавить</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="19"
+                                        Margin="0,0,3,0"
+                                        Foreground="Blue"
+                                        Icon="Pencil">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock>Редактировать</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="19"
+                                        Margin="0,0,3,0"
+                                        Foreground="Red"
+                                        Icon="Times">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock>Удалить</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar>
+                            <Label>Перейти в планеровщик</Label>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Foreground="BlueViolet"
+                                        Icon="ClockOutline">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock>Перейти</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Band="1" BandIndex="1">
+                            <Label>Список адресатов</Label>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Foreground="Green"
+                                        Icon="Plus">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock>Добавить</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="19"
+                                        Margin="0,0,3,0"
+                                        Foreground="Blue"
+                                        Icon="Pencil">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock>Редактировать</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="19"
+                                        Margin="0,0,3,0"
+                                        Foreground="Red"
+                                        Icon="Times">
+                                        <fa:ImageAwesome.Effect>
+                                            <DropShadowEffect
+                                                BlurRadius="1"
+                                                ShadowDepth="2"
+                                                Color="Black" />
+                                        </fa:ImageAwesome.Effect>
+                                    </fa:ImageAwesome>
+                                    <TextBlock>Удалить</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                    <GroupBox Grid.Row="1" Header="Получатели писем">
+                        <DataGrid AutoGenerateColumns="False" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" />
+                                <DataGridTextColumn Width="150" Header="Имя" />
+                                <DataGridTextColumn Width="150" Header="Emal" />
+                                <DataGridTextColumn Width="*" Header="Коментарий" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem
+                Height="22"
+                VerticalAlignment="Top"
+                Header="Планировщик">
+                <DockPanel LastChildFill="True">
+                    <StackPanel>
+                        <TextBlock>Дата:</TextBlock>
+                        <Calendar />
+                        <DockPanel>
+                            <TextBlock Margin="0,0,3,0">Время:</TextBlock>
+                            <TextBlock Text="00:00:00" TextAlignment="Center" />
+                        </DockPanel>
+                        <StackPanel Margin="0,5">
+                            <Button Margin="0,3" Padding="0,5">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Icon="ClockOutline" />
+                                    <TextBlock Text="Запланировать" />
+                                </StackPanel>
+                            </Button>
+                            <Button Margin="0,3" Padding="0,5">
+                                <StackPanel Orientation="Horizontal">
+                                    <fa:ImageAwesome
+                                        Height="16"
+                                        Margin="0,0,3,0"
+                                        Foreground="Blue"
+                                        Icon="Send" />
+                                    <TextBlock Text="Отправить" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <GroupBox Header="Запланированные задания">
+                        <ListBox>
+                            <ListBoxItem>Задание 1</ListBoxItem>
+                            <ListBoxItem>Задание 2</ListBoxItem>
+                            <ListBoxItem>Задание 3</ListBoxItem>
+                            <ListBoxItem>Задание 4</ListBoxItem>
+                            <ListBoxItem>Задание 5</ListBoxItem>
+                            <ListBoxItem>Задание 6</ListBoxItem>
+                        </ListBox>
+                    </GroupBox>
+                </DockPanel>
+            </TabItem>
+
+            <TabItem Header="Почта" />
+            <TabItem Header="Статистика" IsEnabled="False" />
         </TabControl>
     </DockPanel>
 </Window>
