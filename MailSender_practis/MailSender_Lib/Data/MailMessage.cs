@@ -3,7 +3,7 @@
     /// <summary>
     /// Класс письмо
     /// </summary>
-    class MailMessage
+    public class MailMessage
     {
         /// <summary>
         /// Тема письма 

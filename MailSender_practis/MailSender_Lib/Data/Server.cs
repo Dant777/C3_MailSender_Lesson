@@ -3,8 +3,10 @@
     /// <summary>
     /// Класс сервера от которого идет письмо
     /// </summary>
-    class Server
+    public class Server
     {
+        public string Name { get; set; }
+
         /// <summary>
         /// Адрес сервера
         /// </summary>

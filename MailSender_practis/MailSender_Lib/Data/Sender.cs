@@ -9,7 +9,7 @@ namespace MailSender_Lib.Data
     /// <summary>
     /// Класс отправителя
     /// </summary>
-    class Sender
+    public class Sender
     {
         /// <summary>
         /// Имя отправителя
