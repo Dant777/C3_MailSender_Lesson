@@ -293,7 +293,36 @@
                 </DockPanel>
             </TabItem>
 
-            <TabItem Header="Почта" />
+            <TabItem Header="Почта">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Header="Письма">
+                        <DockPanel>
+                            <UniformGrid DockPanel.Dock="Bottom">
+                                <Button>New</Button>
+                                <Button>Del</Button>
+                            </UniformGrid>
+                            <ListBox>
+                                <ListBoxItem>Письмо 1</ListBoxItem>
+                                <ListBoxItem>Письмо 2</ListBoxItem>
+                                <ListBoxItem>Письмо 3</ListBoxItem>
+                            </ListBox>
+                        </DockPanel>
+
+                    </GroupBox>
+                    <DockPanel Grid.Column="1">
+                        <GroupBox DockPanel.Dock="Top" Header="Тема">
+                            <TextBox />
+                        </GroupBox>
+                        <GroupBox DockPanel.Dock="Top" Header="Тело письма">
+                            <TextBox AcceptsReturn="True" />
+                        </GroupBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
             <TabItem Header="Статистика" IsEnabled="False" />
         </TabControl>
     </DockPanel>
