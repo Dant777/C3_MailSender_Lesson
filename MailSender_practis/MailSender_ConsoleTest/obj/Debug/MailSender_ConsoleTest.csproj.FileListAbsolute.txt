@@ -1,0 +1,6 @@
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_ConsoleTest\bin\Debug\MailSender_ConsoleTest.exe.config
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_ConsoleTest\bin\Debug\MailSender_ConsoleTest.exe
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_ConsoleTest\bin\Debug\MailSender_ConsoleTest.pdb
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_ConsoleTest\obj\Debug\MailSender_ConsoleTest.csproj.CoreCompileInputs.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_ConsoleTest\obj\Debug\MailSender_ConsoleTest.exe
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_ConsoleTest\obj\Debug\MailSender_ConsoleTest.pdb

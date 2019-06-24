@@ -2,8 +2,10 @@
     x:Class="MailSender_practis.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cmp="clr-namespace:MailSender_practis.Components"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:data="clr-namespace:MailSender_Lib.Data;assembly=MailSender_Lib"
+    xmlns:db="clr-namespace:MailSender_Lib.Data.Linq2SQL;assembly=MailSender_Lib"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:MailSender_practis"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -25,9 +27,19 @@
             <MenuItem Header="Помощь" IsEnabled="False" />
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
+
+            <StatusBarItem DockPanel.Dock="Right">
+                <cmp:TabConroler
+                    Width="200"
+                    Height="20"
+                    IsLeftButtonVisible="False"
+                    LeftButtonClick="TabConroler_LeftButtonClick"
+                    RightButtonClick="TabConroler_RightButtonClick" />
+            </StatusBarItem>
             <TextBlock>Ready Ready</TextBlock>
+
         </StatusBar>
-        <TabControl>
+        <TabControl x:Name="MainTabControle">
             <TabItem Header="Списки">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -244,12 +256,30 @@
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Grid.Row="1" Header="Получатели писем">
-                        <DataGrid AutoGenerateColumns="False" IsReadOnly="True">
+                        <GroupBox.Resources>
+                            <db:MailSenderDBContext x:Key="DataBaseContext" />
+                        </GroupBox.Resources>
+                        <DataGrid
+                            AlternatingRowBackground="LightBlue"
+                            AutoGenerateColumns="False"
+                            GridLinesVisibility="Vertical"
+                            IsReadOnly="True"
+                            ItemsSource="{Binding Recipient, Source={StaticResource DataBaseContext}}"
+                            VerticalGridLinesBrush="DarkGray">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" />
-                                <DataGridTextColumn Width="150" Header="Имя" />
-                                <DataGridTextColumn Width="150" Header="Emal" />
-                                <DataGridTextColumn Width="*" Header="Коментарий" />
+                                <DataGridTextColumn Binding="{Binding Id}" Header="ID" />
+                                <DataGridTextColumn
+                                    Width="150"
+                                    Binding="{Binding Name}"
+                                    Header="Имя" />
+                                <DataGridTextColumn
+                                    Width="150"
+                                    Binding="{Binding Address}"
+                                    Header="Emal" />
+                                <DataGridTextColumn
+                                    Width="*"
+                                    Binding="{Binding Description}"
+                                    Header="Коментарий" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </GroupBox>

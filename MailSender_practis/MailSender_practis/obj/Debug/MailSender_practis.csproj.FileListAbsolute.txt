@@ -19,3 +19,7 @@ F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\Ma
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\App.baml
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\MailSender_Lib.dll
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\MailSender_Lib.pdb
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\bin\Debug\MailSender_Lib.dll.config
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\Components\TabConroler.g.cs
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\Components\TabConroler.baml
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\GeneratedInternalTypeHelper.g.cs

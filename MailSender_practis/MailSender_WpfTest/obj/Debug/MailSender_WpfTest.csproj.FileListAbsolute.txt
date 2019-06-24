@@ -1,0 +1,15 @@
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\bin\Debug\MailSender_WpfTest.exe.config
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\bin\Debug\MailSender_WpfTest.exe
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\bin\Debug\MailSender_WpfTest.pdb
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.csprojAssemblyReference.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MainWindow.g.cs
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\App.g.cs
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest_MarkupCompile.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest_MarkupCompile.lref
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MainWindow.baml
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.g.resources
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.Properties.Resources.resources
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.csproj.GenerateResource.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.csproj.CoreCompileInputs.cache
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.exe
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.pdb
