@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -48,6 +49,7 @@
     <Compile Include="Data\Recipient.cs" />
     <Compile Include="Data\Sender.cs" />
     <Compile Include="Data\Server.cs" />
+    <Compile Include="Data\SmtpServer.cs" />
     <Compile Include="Data\TestData.cs" />
     <Compile Include="Data\Linq2SQL\MailSenderDBContext.designer.cs">
       <AutoGen>True</AutoGen>
@@ -55,6 +57,7 @@
       <DependentUpon>MailSenderDBContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="Data\VariablesClass.cs" />
+    <Compile Include="EmailSendServiceClass.cs" />
     <Compile Include="MailScheduler.cs" />
     <Compile Include="MailSenderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

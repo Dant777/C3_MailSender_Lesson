@@ -110,19 +110,15 @@
                         </ToolBar>
                         <ToolBar Band="1" BandIndex="0">
                             <Label>Отправители</Label>
-                            <ComboBox
+                            <ComboBox Name="cbSenderSelect"
                                 MinWidth="100"
                                 MaxWidth="120"
-                                ItemsSource="{x:Static data:TestData.Senders}"
+                                ItemsSource="{x:Static data:VariablesClass.Senders}"
                                 SelectedIndex="0">
                                 <ComboBox.ItemTemplate>
-                                    <DataTemplate DataType="{x:Type data:Sender}">
+                                    <DataTemplate >
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name}" />
-                                            <TextBlock
-                                                Margin="5,0,0,0"
-                                                Opacity="0.6"
-                                                Text="{Binding Address}" />
+                                            <TextBlock Text="{Binding Key}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
