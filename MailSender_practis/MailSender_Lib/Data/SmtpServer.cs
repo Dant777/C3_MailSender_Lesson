@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MailSender_Lib.Data
 {
-    class SmtpServer
+    public static class SmtpServer
     {
-        public static Dictionary<string, string> Server
+        public static Dictionary<string, string> Servers
         {
-            get { return dicServer; }
+            get { return dicServers; }
         }
-        private static Dictionary<string, string> dicServer = new Dictionary<string, string>()
+        private static Dictionary<string, string> dicServers = new Dictionary<string, string>()
         {
             { "smtp.yandex.ru","25" },
             

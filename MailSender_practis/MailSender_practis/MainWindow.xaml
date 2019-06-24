@@ -51,11 +51,11 @@
                         <ToolBar>
                             <Label>Сервера</Label>
                             <ComboBox
+                                x:Name="cbServerSelect"
                                 MinWidth="100"
                                 MaxWidth="120"
-                                DisplayMemberPath="Name"
-                                ItemsSource="{x:Static data:TestData.Servers}"
-                                SelectedIndex="0" />
+                                SelectedIndex="0" >
+                            </ComboBox>
                             <Button>
                                 <StackPanel Orientation="Horizontal">
                                     <fa:ImageAwesome
@@ -113,16 +113,7 @@
                             <ComboBox Name="cbSenderSelect"
                                 MinWidth="100"
                                 MaxWidth="120"
-                                ItemsSource="{x:Static data:VariablesClass.Senders}"
                                 SelectedIndex="0">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate >
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Key}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-
                             </ComboBox>
                             <Button>
                                 <StackPanel Orientation="Horizontal">
@@ -255,7 +246,7 @@
                         <GroupBox.Resources>
                             <db:MailSenderDBContext x:Key="DataBaseContext" />
                         </GroupBox.Resources>
-                        <DataGrid
+                        <DataGrid x:Name="dtRecipientSelect"
                             AlternatingRowBackground="LightBlue"
                             AutoGenerateColumns="False"
                             GridLinesVisibility="Vertical"
@@ -271,7 +262,7 @@
                                 <DataGridTextColumn
                                     Width="150"
                                     Binding="{Binding Address}"
-                                    Header="Emal" />
+                                    Header="Email" />
                                 <DataGridTextColumn
                                     Width="*"
                                     Binding="{Binding Description}"
@@ -303,7 +294,7 @@
                                     <TextBlock Text="Запланировать" />
                                 </StackPanel>
                             </Button>
-                            <Button Margin="0,3" Padding="0,5">
+                            <Button  x:Name="btnSendAtOnce" Margin="0,3" Padding="0,5" Click="BtnSendAtOnce_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:ImageAwesome
                                         Height="16"
@@ -328,7 +319,7 @@
                 </DockPanel>
             </TabItem>
 
-            <TabItem Header="Почта">
+            <TabItem Name="tabPlanner" Header="Почта">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*" />
@@ -353,10 +344,10 @@
                     </GroupBox>
                     <DockPanel Grid.Column="1">
                         <GroupBox DockPanel.Dock="Top" Header="Тема">
-                            <TextBox Text="{Binding SelectedItem.Subject, ElementName=MessagesList}" />
+                            <TextBox x:Name="txtObject" Text="{Binding SelectedItem.Subject, ElementName=MessagesList}" />
                         </GroupBox>
                         <GroupBox DockPanel.Dock="Top" Header="Тело письма">
-                            <TextBox AcceptsReturn="True" Text="{Binding SelectedItem.Body, ElementName=MessagesList}" />
+                            <TextBox  x:Name="txtBody" AcceptsReturn="True" Text="{Binding SelectedItem.Body, ElementName=MessagesList}" />
                         </GroupBox>
                     </DockPanel>
                 </Grid>

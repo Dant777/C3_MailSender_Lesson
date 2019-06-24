@@ -10,7 +10,7 @@ using System.Net.Mail;
 namespace MailSender_Lib
 {
 
-    class EmailSendServiceClass
+    public class EmailSendServiceClass
     {
         MailMessage message = new MailMessage();
         //Sender
