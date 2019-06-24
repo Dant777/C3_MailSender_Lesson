@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MailSender_Lib.Data
 {
+    /// <summary>
+    /// Содержит коллекция отправителей с адресами и паролями
+    /// </summary>
     public static class VariablesClass
     {
         public static Dictionary<string, string> Senders
@@ -14,7 +17,7 @@ namespace MailSender_Lib.Data
         }
         private static Dictionary<string, string> dicSenders = new Dictionary<string, string>()
         {
-            { "vl.kolbt87@yandex.ru","ibnjrfy8787" },
+            { "??????@yandex.ru","" },
             { "sok74@yandex.ru",PasswordClass.getPassword(";liq34tjk") }
         };
     }

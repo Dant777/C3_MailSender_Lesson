@@ -50,7 +50,6 @@
     <Compile Include="Data\Sender.cs" />
     <Compile Include="Data\Server.cs" />
     <Compile Include="Data\SmtpServer.cs" />
-    <Compile Include="Data\TestData.cs" />
     <Compile Include="Data\Linq2SQL\MailSenderDBContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
