@@ -67,42 +67,42 @@ namespace MailSender_practis
         /// <param name="e"></param>
         private void BtnSendAtOnce_Click(object sender, RoutedEventArgs e)
         {
-            //вход на сервер
-            string strLogin = cbSenderSelect.Text;
-            string strPassword = cbSenderSelect.SelectedValue.ToString();
-            //отправитель
-            string senderName = cbSenderSelect.Text;
-            string senderAddress = cbSenderSelect.Text;
-            //Сервер
-            string serverAdress = cbServerSelect.Text;
-            int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());
-            //получатель
-            var recipientSelect = (Recipient)dtRecipientSelect.SelectedValue;
-            string recipName = recipientSelect.Name;
-            string recipAddress = recipientSelect.Address;
-            //письмо
-            if (txtObject.Text == "")
-            {
-                MessageBox.Show("Нет темы письма", "Тема письма",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                MainTabControle.SelectedItem = tabPlanner;
-                txtObject.Focus();
-                return;
-            }
-            if (txtBody.Text == "")
-            {
-                MessageBox.Show("Письмо пустое", "Пусто",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                MainTabControle.SelectedItem = tabPlanner;
-                txtBody.Focus();
-                return;
-            }
-            string mailObject = txtObject.Text;
-            string mailBody = txtBody.Text;
+            ////вход на сервер
+            //string strLogin = cbSenderSelect.Text;
+            //string strPassword = cbSenderSelect.SelectedValue.ToString();
+            ////отправитель
+            //string senderName = cbSenderSelect.Text;
+            //string senderAddress = cbSenderSelect.Text;
+            ////Сервер
+            //string serverAdress = cbServerSelect.Text;
+            //int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());
+            ////получатель
+            //var recipientSelect = (Recipient)dtRecipientSelect.SelectedValue;
+            //string recipName = recipientSelect.Name;
+            //string recipAddress = recipientSelect.Address;
+            ////письмо
+            //if (txtObject.Text == "")
+            //{
+            //    MessageBox.Show("Нет темы письма", "Тема письма",
+            //        MessageBoxButton.OK, MessageBoxImage.Error);
+            //    MainTabControle.SelectedItem = tabPlanner;
+            //    txtObject.Focus();
+            //    return;
+            //}
+            //if (txtBody.Text == "")
+            //{
+            //    MessageBox.Show("Письмо пустое", "Пусто",
+            //        MessageBoxButton.OK, MessageBoxImage.Error);
+            //    MainTabControle.SelectedItem = tabPlanner;
+            //    txtBody.Focus();
+            //    return;
+            //}
+            //string mailObject = txtObject.Text;
+            //string mailBody = txtBody.Text;
 
-            var emailSend = new EmailSendServiceClass(senderName, senderName, recipName, recipAddress);
-            emailSend.CreateMailMessage(mailObject, mailBody);
-            emailSend.SendMail(serverAdress, serverPort, senderAddress, strPassword, true);
+            //var emailSend = new EmailSendServiceClass(senderName, senderName, recipName, recipAddress);
+            //emailSend.CreateMailMessage(mailObject, mailBody);
+            //emailSend.SendMail(serverAdress, serverPort, senderAddress, strPassword, true);
         }
     }
 }
