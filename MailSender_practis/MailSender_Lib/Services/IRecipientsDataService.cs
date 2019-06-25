@@ -11,5 +11,8 @@ namespace MailSender_Lib.Services
     {
         IEnumerable<Recipient> GetAll();
 
+        void Update(Recipient item);
+        void Create(Recipient item);
+        void Delete(Recipient item);
     }
 }

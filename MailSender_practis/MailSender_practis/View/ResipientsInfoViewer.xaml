@@ -4,22 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSender_practis.View"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding UpdateDateCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0,5" FontSize="18" FontWeight="Bold">Получатели писем</TextBlock>
         <DockPanel DockPanel.Dock="Top" Margin="5,0">
             <TextBlock Margin="0,0,3,0" DockPanel.Dock="Top">Фильтр имени</TextBlock>
             <TextBox />
         </DockPanel>
-        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="0,5" Padding="30,5">Обновить</Button>
+        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="0,5" Padding="30,5"
+                Command="{Binding UpdateDateCommand}"
+                Content="Обновить"></Button>
         <DataGrid x:Name="dtRecipientSelect" Margin="5,0"
                             AlternatingRowBackground="LightBlue"
                             AutoGenerateColumns="False"
                             GridLinesVisibility="Vertical"
                             IsReadOnly="True"
                             ItemsSource="{Binding Recipients}"
+                            SelectedItem="{Binding CurrentRecipient}"
                             VerticalGridLinesBrush="DarkGray">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="ID" />

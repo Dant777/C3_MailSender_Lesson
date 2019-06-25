@@ -14,10 +14,29 @@ namespace MailSender_Lib.Services.Linq2SQL
         {
             _db = db;
         }
-
         public IEnumerable<Recipient> GetAll()
         {
             return _db.Recipient.ToArray();
+        }
+
+        public void Create(Recipient item)
+        {
+            if (item.Id != 0) return;
+            _db.Recipient.InsertOnSubmit(item);
+            _db.SubmitChanges();
+        }
+
+        public void Delete(Recipient item)
+        {
+            _db.Recipient.DeleteOnSubmit(item);
+            _db.SubmitChanges();
+        }
+
+        public void Update(Recipient item)
+        {
+            
+            
+            _db.SubmitChanges();
         }
     }
 }
