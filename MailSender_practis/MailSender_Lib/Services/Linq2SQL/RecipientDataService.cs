@@ -26,7 +26,7 @@ namespace MailSender_Lib.Services.Linq2SQL
             _db.SubmitChanges();
         }
 
-        public void Delete(Recipient item)
+        public void Delete(Recipient item) 
         {
             _db.Recipient.DeleteOnSubmit(item);
             _db.SubmitChanges();
@@ -34,9 +34,14 @@ namespace MailSender_Lib.Services.Linq2SQL
 
         public void Update(Recipient item)
         {
-            
+
             
             _db.SubmitChanges();
+        }
+
+        public void Search(Recipient item)
+        {
+            
         }
     }
 }

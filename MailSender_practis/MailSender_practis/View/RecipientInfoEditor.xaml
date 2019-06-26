@@ -40,8 +40,7 @@
                      VerticalAlignment="Top"
                      HorizontalAlignment="Center" Margin="0,5">
             <Button Margin="3,0" Padding="5,3" Command="{Binding CreateRecipientCommand}">Создать</Button>
-            <Button Margin="3,0" Padding="5,3" Command="{Binding SaveRecipientCommand}"
-                    CommandParameter="{Binding CurrentRecipient}">Сохранить</Button>
+            <Button Margin="3,0" Padding="5,3" Command="{Binding SaveRecipientCommand}" CommandParameter="{Binding CurrentRecipient}">Сохранить</Button>
 
         </UniformGrid>
     </Grid>

@@ -24,7 +24,7 @@
                 <MenuItem Header="Сохранить" />
                 <MenuItem Header="Закрыть" />
                 <Separator />
-                <MenuItem Click="Exit_Click" Header="Выход" />
+                <MenuItem Command="{Binding ApplicationExitCommand}" Header="Выход" />
             </MenuItem>
             <MenuItem Header="Сервис" IsEnabled="False" />
             <MenuItem Header="Помощь" IsEnabled="False" />

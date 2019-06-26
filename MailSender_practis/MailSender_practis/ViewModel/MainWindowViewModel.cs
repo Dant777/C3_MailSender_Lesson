@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using System.Windows;
 
 namespace MailSender_practis.ViewModel
 {
@@ -63,9 +64,20 @@ namespace MailSender_practis.ViewModel
         {
             _RecipientsDataService = RecipientsDataService;
             UpdateDateCommand = new RelayCommand(OnUpdateDataCommandExecute, CanUpdateDataCommandExecute);
-            CreateRecipientCommand = new RelayCommand(OnUpdateDataCommandExecute, CanUpdateDataCommandExecute);
+            CreateRecipientCommand = new RelayCommand(OnCreateRecipientCommandExecuted, CanCreateRecipientCommandExecuted);
             SaveRecipientCommand = new RelayCommand<Recipient>(OnSaveRecipientCommandExecuted, CanSaveRecipientCommandExecuted);
+            ApplicationExitCommand = new RelayCommand(OnApplicationExitCommandExecuted, () => true, true);
         }
+
+        private static void OnApplicationExitCommandExecuted()
+        {
+            Application.Current.Shutdown();
+        }
+
+        #region MyRegion
+        public ICommand ApplicationExitCommand { get; }
+
+        #endregion
 
         #region Редактирование получателя
         public ICommand SaveRecipientCommand { get; }
@@ -74,7 +86,7 @@ namespace MailSender_practis.ViewModel
         {
             _RecipientsDataService.Update(recipient);
         }
-        private bool CanSaveRecipientCommandExecuted(Recipient recipient) => recipient != null;
+        private bool CanSaveRecipientCommandExecuted(Recipient recipient) => true;
 
         #endregion
 
@@ -85,7 +97,11 @@ namespace MailSender_practis.ViewModel
         public ICommand CreateRecipientCommand { get; }
         private void OnCreateRecipientCommandExecuted()
         {
-            var new_recipient = new Recipient();
+            var new_recipient = new Recipient()
+            {
+                Name = "New recipient",
+                Address = "new_Email@mail.ru"
+            };
             _RecipientsDataService.Create(new_recipient);
             _Recipients.Add(new_recipient);
             CurrentRecipient = new_recipient;

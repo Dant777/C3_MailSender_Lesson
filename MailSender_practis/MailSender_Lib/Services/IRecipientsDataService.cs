@@ -14,5 +14,6 @@ namespace MailSender_Lib.Services
         void Update(Recipient item);
         void Create(Recipient item);
         void Delete(Recipient item);
+        void Search(Recipient item);
     }
 }
