@@ -13,3 +13,4 @@ F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\Ma
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.csproj.CoreCompileInputs.cache
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.exe
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\MailSender_WpfTest.pdb
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_WpfTest\obj\Debug\GeneratedInternalTypeHelper.g.cs

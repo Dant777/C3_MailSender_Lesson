@@ -1,49 +1,66 @@
-﻿<UserControl x:Class="MailSender_practis.View.ResipientsInfoViewer"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MailSender_practis.View"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}">
+﻿<UserControl
+    x:Class="MailSender_practis.View.ResipientsInfoViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:MailSender_practis.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
+    mc:Ignorable="d">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding UpdateDateCommand}"/>
+            <i:InvokeCommandAction Command="{Binding UpdateDateCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <DockPanel>
-        <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="0,5" FontSize="18" FontWeight="Bold">Получатели писем</TextBlock>
-        <DockPanel DockPanel.Dock="Top" Margin="5,0">
+        <TextBlock
+            Margin="0,5"
+            HorizontalAlignment="Center"
+            DockPanel.Dock="Top"
+            FontSize="18"
+            FontWeight="Bold">
+            Получатели писем
+        </TextBlock>
+        <DockPanel Margin="5,0" DockPanel.Dock="Top">
             <TextBlock Margin="0,0,3,0" DockPanel.Dock="Top">Фильтр имени</TextBlock>
-            <TextBox />
+            <Button Command="{Binding FilterDateCommand}" DockPanel.Dock="Right">Фильтровать</Button>
+            <TextBox Text="{Binding FilterRecipientNameString}" />
+
         </DockPanel>
-        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="0,5" Padding="30,5"
-                Command="{Binding UpdateDateCommand}"
-                Content="Обновить"></Button>
-        <DataGrid x:Name="dtRecipientSelect" Margin="5,0"
-                            AlternatingRowBackground="LightBlue"
-                            AutoGenerateColumns="False"
-                            GridLinesVisibility="Vertical"
-                            IsReadOnly="True"
-                            ItemsSource="{Binding Recipients}"
-                            SelectedItem="{Binding CurrentRecipient}"
-                            VerticalGridLinesBrush="DarkGray">
+        <Button
+            Margin="0,5"
+            Padding="30,5"
+            HorizontalAlignment="Center"
+            Command="{Binding UpdateDateCommand}"
+            Content="Сброс/Обновить"
+            DockPanel.Dock="Bottom" />
+        <DataGrid
+            x:Name="dtRecipientSelect"
+            Margin="5,0"
+            AlternatingRowBackground="LightBlue"
+            AutoGenerateColumns="False"
+            GridLinesVisibility="Vertical"
+            IsReadOnly="True"
+            ItemsSource="{Binding ItemsView}"
+            SelectedItem="{Binding CurrentRecipient}"
+            VerticalGridLinesBrush="DarkGray">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="ID" />
                 <DataGridTextColumn
-                                    Width="150"
-                                    Binding="{Binding Name}"
-                                    Header="Имя" />
+                    Width="150"
+                    Binding="{Binding Name}"
+                    Header="Имя" />
                 <DataGridTextColumn
-                                    Width="150"
-                                    Binding="{Binding Address}"
-                                    Header="Email" />
+                    Width="150"
+                    Binding="{Binding Address}"
+                    Header="Email" />
                 <DataGridTextColumn
-                                    Width="*"
-                                    Binding="{Binding Description}"
-                                    Header="Коментарий" />
+                    Width="*"
+                    Binding="{Binding Description}"
+                    Header="Коментарий" />
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>
