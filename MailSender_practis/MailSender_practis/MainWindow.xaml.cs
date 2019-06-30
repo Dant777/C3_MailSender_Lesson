@@ -18,6 +18,7 @@ using MailSender_Lib.Data;
 using MailSender_Lib.Data.Linq2SQL;
 using MailSender_Lib;
 using System.Data;
+using System.Windows.Threading;
 
 namespace MailSender_practis
 { 
@@ -36,7 +37,8 @@ namespace MailSender_practis
             cbServerSelect.DisplayMemberPath = "Key";
             cbServerSelect.SelectedValuePath = "Value";
             cbServerSelect.SelectedIndex = 0;
-           
+
+            
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -106,7 +108,7 @@ namespace MailSender_practis
             string mailObject = txtObject.Text;
             string mailBody = txtBody.Text;
 
-            var emailSend = new EmailSendServiceClass(senderName, senderName, recipName, recipAddress);
+            var emailSend = new EmailSendServiceClass_Test(senderName, senderName, recipName, recipAddress);
             emailSend.CreateMailMessage(mailObject, mailBody);
             emailSend.SendMail(serverAdress, serverPort, senderAddress, strPassword, true);
         }

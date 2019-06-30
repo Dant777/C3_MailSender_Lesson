@@ -6,84 +6,74 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
+using MailSender_Lib.Data.Linq2SQL;
 
 namespace MailSender_Lib
 {
-
+    
     public class EmailSendServiceClass
     {
         MailMessage message = new MailMessage();
-        //Sender
-        private string SenderAddress = String.Empty;
-        private string SenderName = String.Empty;
-        //Recipient
-        private string RecipientAddress = String.Empty;
-        private string RecipientName = String.Empty;
+
+        //User
+        private string strLogin;         // email, c которого будет рассылаться почта
+        private string strPassword;  // пароль к email, с которого будет рассылаться почта
+        private string strSmtp;
+        private int strPort;
+        private string strBody;                    // текст письма для отправки
+        private string strSubject;                 // тема письма для отправки
+
+
 
         /// <summary>
-        /// Конструктор класса, подаюстся адреса и имена отправителя и получателя 
+        /// Конструктор класса дла ввхода на сервер 
         /// </summary>
-        /// <param name="senderName">Имя отправителя</param>
-        /// <param name="senderAddress">Адрес отправителя</param>
-        /// <param name="recipientName">Имя получателя</param>
-        /// <param name="recipientAddress">Адрес получателя</param>
-        public EmailSendServiceClass(string senderName, string senderAddress, string recipientName, string recipientAddress)
+        /// <param name="userLogin">Логин пользователя</param>
+        /// <param name="userPassword">Пароль пользователя</param>
+        /// <param name="userSmtp">Сервер</param>
+        /// <param name="clientPort">Порт</param>
+        public EmailSendServiceClass(string userLogin, string userPassword, string userSmtp, int clientPort)
         {
-            this.SenderName = senderName;
-            this.SenderAddress = senderAddress;
-
-            this.RecipientName = recipientName;
-            this.RecipientAddress = recipientAddress;
+            strLogin = userLogin;
+            strPassword = userPassword;
+            strSmtp = userSmtp;
+            strPort = clientPort;
         }
         /// <summary>
         /// Создание письма
         /// </summary>
-        public void CreateMailMessage(string subject, string body)
+ 
+        private void SendMail(string mail, string name, string strBody, string strSubject)
         {
-            try
+            this.strBody = strBody;
+            this.strSubject = strSubject;
+            using (MailMessage mm = new MailMessage(strLogin, mail))
             {
-                message.From = new MailAddress(SenderAddress, SenderName);
-                message.To.Add(new MailAddress(RecipientAddress, RecipientName));
-                message.Subject = $"{subject}";
-                message.Body = $"{body} \n Отправлено - {DateTime.Now}";
+                mm.Subject = strSubject;
+                mm.Body = strBody;
+                mm.IsBodyHtml = false;
+                SmtpClient sc = new SmtpClient(strSmtp, strPort);
+                sc.EnableSsl = true;
+                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+                sc.UseDefaultCredentials = false;
+                sc.Credentials = new NetworkCredential(strLogin, strPassword);
+                try
+                {
+                    sc.Send(mm);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Невозможно отправить письмо " + e.ToString());
+                }
 
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Ошибка при отправке почты \r\n{e.Message}", "Ошибка!",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                
             }
         }
 
-        /// <summary>
-        /// Отправка письма
-        /// </summary>
-        /// <param name="cliendAddress">Адрес сервера</param>
-        /// <param name="clientPort">Порт сервера</param>
-        /// <param name="userName">Логин пользователя</param>
-        /// <param name="password">Пароль пользователя</param>
-        /// <param name="flag">Использование Secure Sokets</param>
-        public void SendMail(string cliendAddress, int clientPort, string userName, string password, bool flag)
+        public void SendMails(IQueryable<Recipient> emails)
         {
-            try
+            foreach (Recipient email in emails)
             {
-                using (var client = new SmtpClient(cliendAddress, clientPort))
-                {
-                    client.EnableSsl = flag;
-                    client.Credentials = new NetworkCredential(userName, password);
-                    client.Send(message);
-
-                    MessageBox.Show("Почта отправлена успешно!", "Успех!!!",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Ошибка при отправке почты \r\n{e.Message}", "Ошибка!",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-
+                SendMail(email.Address, email.Name, strBody, strSubject);
             }
         }
     }
