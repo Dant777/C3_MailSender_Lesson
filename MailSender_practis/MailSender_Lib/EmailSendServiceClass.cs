@@ -32,21 +32,24 @@ namespace MailSender_Lib
         /// <param name="userPassword">Пароль пользователя</param>
         /// <param name="userSmtp">Сервер</param>
         /// <param name="clientPort">Порт</param>
-        public EmailSendServiceClass(string userLogin, string userPassword, string userSmtp, int clientPort)
+        /// <param name="strBody">Тело письма</param>
+        /// <param name="strSubject">Тема письма</param>
+        public EmailSendServiceClass(string userLogin, string userPassword, string userSmtp, int clientPort, string strBody, string strSubject)
         {
             strLogin = userLogin;
             strPassword = userPassword;
             strSmtp = userSmtp;
             strPort = clientPort;
+            this.strBody = strBody;
+            this.strSubject = strSubject;
         }
         /// <summary>
         /// Создание письма
         /// </summary>
  
-        private void SendMail(string mail, string name, string strBody, string strSubject)
+        private void SendMail(string mail, string name)
         {
-            this.strBody = strBody;
-            this.strSubject = strSubject;
+            
             using (MailMessage mm = new MailMessage(strLogin, mail))
             {
                 mm.Subject = strSubject;
@@ -73,7 +76,7 @@ namespace MailSender_Lib
         {
             foreach (Recipient email in emails)
             {
-                SendMail(email.Address, email.Name, strBody, strSubject);
+                SendMail(email.Address, email.Name);
             }
         }
     }

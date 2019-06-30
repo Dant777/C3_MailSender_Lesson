@@ -74,14 +74,14 @@ namespace MailSender_practis
         {
             recInfoViewer = new ResipientsInfoViewer();
             //вход на сервер
-            string strLogin = cbSenderSelect.Text;
-            string strPassword = cbSenderSelect.SelectedValue.ToString();
+            string strLogin = cbSenderSelect.Text;                          // Login/address sender
+            string strPassword = cbSenderSelect.SelectedValue.ToString();   // User password
             //отправитель
             string senderName = cbSenderSelect.Text;
             string senderAddress = cbSenderSelect.Text;
             //Сервер
-            string serverAdress = cbServerSelect.Text;
-            int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());
+            string serverAdress = cbServerSelect.Text;                                  // smpt server
+            int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());  // port server
             //получатель
             var recipientSelect = (Recipient)recInfoViewer.dtRecipientSelect.SelectedValue;
             string recipName = recipientSelect.Name;
