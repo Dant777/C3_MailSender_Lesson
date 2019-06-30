@@ -5,3 +5,5 @@ F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\Ma
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_Lib\obj\Debug\MailSender_Lib.dll
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_Lib\obj\Debug\MailSender_Lib.pdb
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_Lib\bin\Debug\MailSender_Lib.dll.config
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_Lib\bin\Debug\System.Threading.Tasks.Dataflow.dll
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_Lib\obj\Debug\MailSender_Lib.csproj.CopyComplete

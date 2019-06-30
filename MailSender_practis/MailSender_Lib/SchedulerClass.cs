@@ -17,7 +17,7 @@ using MailSender_Lib.Data.Linq2SQL;
 namespace MailSender_Lib.Data
 {
 
-    class SchedulerClass
+    public class SchedulerClass
     {
         DispatcherTimer timer = new DispatcherTimer(); // таймер 
         EmailSendServiceClass emailSender;             // экземпляр класса, отвечающего за отправку писем
@@ -67,8 +67,6 @@ namespace MailSender_Lib.Data
                 MessageBox.Show("Письма отправлены.");
 
             }
-
-
 
         }
 

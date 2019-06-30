@@ -265,13 +265,20 @@
                 <DockPanel LastChildFill="True">
                     <StackPanel>
                         <TextBlock>Дата:</TextBlock>
-                        <Calendar />
+                        <Calendar Name="cldSchedulDateTimes" />
                         <DockPanel>
                             <TextBlock Margin="0,0,3,0">Время:</TextBlock>
-                            <TextBlock Text="00:00:00" TextAlignment="Center" />
+                            <TextBlock
+                                Name="tbTimePicker"
+                                Text="00:00:00"
+                                TextAlignment="Center" />
                         </DockPanel>
                         <StackPanel Margin="0,5">
-                            <Button Margin="0,3" Padding="0,5">
+                            <Button
+                                Name="btnSendToPlan"
+                                Margin="0,3"
+                                Padding="0,5"
+                                Click="BtnSendToPlan_OnClick">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:ImageAwesome
                                         Height="16"

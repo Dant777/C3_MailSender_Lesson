@@ -112,5 +112,52 @@ namespace MailSender_practis
             emailSend.CreateMailMessage(mailObject, mailBody);
             emailSend.SendMail(serverAdress, serverPort, senderAddress, strPassword, true);
         }
+
+        private void BtnSendToPlan_OnClick(object sender, RoutedEventArgs e)
+        {
+
+            int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());  // port server
+            //получатель
+            var recipientSelect = (Recipient)recInfoViewer.dtRecipientSelect.SelectedValue;
+            string recipName = recipientSelect.Name;
+            string recipAddress = recipientSelect.Address;
+
+            SchedulerClass sc = new SchedulerClass();
+            TimeSpan tsSendTime = sc.GetSendTime(tbTimePicker.Text);
+
+            if (tsSendTime == new TimeSpan())
+            {
+                MessageBox.Show("Некорректный формат даты");
+                return;
+            }
+            DateTime dtSendDateTime = (cldSchedulDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
+
+            if (dtSendDateTime < DateTime.Now)
+            {
+                MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
+                return;
+            }
+            //письмо
+            if (txtObject.Text == "")
+            {
+                MessageBox.Show("Нет темы письма", "Тема письма",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MainTabControle.SelectedItem = tabPlanner;
+                txtObject.Focus();
+                return;
+            }
+            if (txtBody.Text == "")
+            {
+                MessageBox.Show("Письмо пустое", "Пусто",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                MainTabControle.SelectedItem = tabPlanner;
+                txtBody.Focus();
+                return;
+            }
+            EmailSendServiceClass emailSender = new EmailSendServiceClass(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), 
+                                                                            cbServerSelect.Text, serverPort, txtBody.Text, txtObject.Text);
+            sc.SendEmails(dtSendDateTime, emailSender,(IQueryable<Recipient>)recInfoViewer.dtRecipientSelect.SelectedValue);
+
+        }
     }
 }

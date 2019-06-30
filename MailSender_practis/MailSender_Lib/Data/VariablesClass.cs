@@ -17,7 +17,7 @@ namespace MailSender_Lib.Data
         }
         private static Dictionary<string, string> dicSenders = new Dictionary<string, string>()
         {
-            { "&&&@yandex.ru","" },
+            { "vl.kolbt87@yandex.ru","ibnjrfy8787" },
             { "sok74@yandex.ru",PasswordClass.getPassword(";liq34tjk") }
         };
     }
