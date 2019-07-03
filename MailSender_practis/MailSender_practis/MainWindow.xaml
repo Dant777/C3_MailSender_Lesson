@@ -191,7 +191,7 @@
                         </ToolBar>
                         <ToolBar Band="1" BandIndex="1">
                             <Label>Список адресатов</Label>
-                            <Button>
+                            <Button Click="BtnSendToPlan_OnClick">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:ImageAwesome
                                         Height="16"
@@ -268,7 +268,7 @@
                         <Calendar Name="cldSchedulDateTimes" />
                         <DockPanel>
                             <TextBlock Margin="0,0,3,0">Время:</TextBlock>
-                            <TextBlock
+                            <TextBox
                                 Name="tbTimePicker"
                                 Text="00:00:00"
                                 TextAlignment="Center" />

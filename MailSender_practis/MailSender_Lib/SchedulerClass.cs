@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace MailSender_Lib.Data
         DispatcherTimer timer = new DispatcherTimer(); // таймер 
         EmailSendServiceClass emailSender;             // экземпляр класса, отвечающего за отправку писем
         DateTime dtSend;
-        IQueryable<Linq2SQL.Recipient> emails;                  // коллекция email-ов адресатов
+        ObservableCollection<Linq2SQL.Recipient> emails;                  // коллекция email-ов адресатов
 
         /// <summary>
         /// Метод, который превращает строку из текстбокса tbTimePicker в TimeSpan
@@ -33,6 +34,7 @@ namespace MailSender_Lib.Data
         {
 
             TimeSpan tsSendTime = new TimeSpan();
+
             try
             {
                 tsSendTime = TimeSpan.Parse(strSendTime);
@@ -48,7 +50,7 @@ namespace MailSender_Lib.Data
         /// <param name="dtSend"></param>
         /// <param name="emailSender"></param>
         /// <param name="emails"></param>
-        public void SendEmails(DateTime dtSend, EmailSendServiceClass emailSender, IQueryable<Linq2SQL.Recipient> emails)
+        public void SendEmails(DateTime dtSend, EmailSendServiceClass emailSender, ObservableCollection<Linq2SQL.Recipient> emails)
         {
             this.emailSender = emailSender; // Экземпляр класса, отвечающего за отправку писем, присваиваем 
             this.dtSend = dtSend;

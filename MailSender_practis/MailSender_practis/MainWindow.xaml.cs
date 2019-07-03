@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +20,15 @@ using MailSender_Lib.Data.Linq2SQL;
 using MailSender_Lib;
 using System.Data;
 using System.Windows.Threading;
+using System.Collections;
 
 namespace MailSender_practis
 { 
     public partial class MainWindow
     {
+        private ObservableCollection<Recipient> recipientSelect;
         ResipientsInfoViewer recInfoViewer;
+        private DateTime dtSendDateTime;
         public MainWindow()
         {
             InitializeComponent();
@@ -38,7 +42,8 @@ namespace MailSender_practis
             cbServerSelect.SelectedValuePath = "Value";
             cbServerSelect.SelectedIndex = 0;
 
-            
+            dtSendDateTime = new DateTime();
+            tbTimePicker.Text = dtSendDateTime.TimeOfDay.ToString();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -112,29 +117,38 @@ namespace MailSender_practis
             emailSend.CreateMailMessage(mailObject, mailBody);
             emailSend.SendMail(serverAdress, serverPort, senderAddress, strPassword, true);
         }
-
+        /// <summary>
+        /// Отправка письма по расписанию
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSendToPlan_OnClick(object sender, RoutedEventArgs e)
         {
-
+            recInfoViewer = new ResipientsInfoViewer();
+            recipientSelect = new ObservableCollection<Recipient>();
+            
+            List<Recipient> recipientsList = (List<Recipient>)recInfoViewer.dtRecipientSelect.SelectedItems.OfType<Recipient>().ToList();
+               
             int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());  // port server
             //получатель
-            var recipientSelect = (Recipient)recInfoViewer.dtRecipientSelect.SelectedValue;
-            string recipName = recipientSelect.Name;
-            string recipAddress = recipientSelect.Address;
+            //var recipientSelect = (Recipient)recInfoViewer.dtRecipientSelect.SelectedValue;
+            //string recipName = recipientSelect.Name;
+            //string recipAddress = recipientSelect.Address;
 
             SchedulerClass sc = new SchedulerClass();
             TimeSpan tsSendTime = sc.GetSendTime(tbTimePicker.Text);
+            dtSendDateTime = (cldSchedulDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
+            
+            if (dtSendDateTime < DateTime.Now)
+            {
+                MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
+                return;
+            }
+
 
             if (tsSendTime == new TimeSpan())
             {
                 MessageBox.Show("Некорректный формат даты");
-                return;
-            }
-            DateTime dtSendDateTime = (cldSchedulDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
-
-            if (dtSendDateTime < DateTime.Now)
-            {
-                MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
                 return;
             }
             //письмо
@@ -156,7 +170,7 @@ namespace MailSender_practis
             }
             EmailSendServiceClass emailSender = new EmailSendServiceClass(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), 
                                                                             cbServerSelect.Text, serverPort, txtBody.Text, txtObject.Text);
-            sc.SendEmails(dtSendDateTime, emailSender,(IQueryable<Recipient>)recInfoViewer.dtRecipientSelect.SelectedValue);
+            sc.SendEmails(dtSendDateTime, emailSender,recipientSelect);
 
         }
     }

@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
 using MailSender_Lib.Data.Linq2SQL;
+using System.Collections.ObjectModel;
 
 namespace MailSender_Lib
 {
     
     public class EmailSendServiceClass
     {
+        
+
+
         MailMessage message = new MailMessage();
 
         //User
@@ -49,30 +53,44 @@ namespace MailSender_Lib
  
         private void SendMail(string mail, string name)
         {
-            
-            using (MailMessage mm = new MailMessage(strLogin, mail))
+            try
             {
-                mm.Subject = strSubject;
-                mm.Body = strBody;
-                mm.IsBodyHtml = false;
-                SmtpClient sc = new SmtpClient(strSmtp, strPort);
-                sc.EnableSsl = true;
-                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
-                sc.UseDefaultCredentials = false;
-                sc.Credentials = new NetworkCredential(strLogin, strPassword);
-                try
-                {
-                    sc.Send(mm);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Невозможно отправить письмо " + e.ToString());
-                }
+                message.From = new MailAddress(strLogin, "");
+                message.To.Add(new MailAddress(mail, name));
+                message.Subject = $"{strSubject}";
+                message.Body = $"{strBody} \n Отправлено - {DateTime.Now}";
 
             }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Ошибка при отправке почты \r\n{e.Message}", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
+            try
+            {
+                using (var client = new SmtpClient(strSmtp, strPort))
+                {
+                    client.EnableSsl = true;
+                    client.Credentials = new NetworkCredential(strLogin, strPassword);
+                    client.Send(message);
+
+                    MessageBox.Show("Почта отправлена успешно!", "Успех!!!",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Ошибка при отправке почты \r\n{e.Message}", "Ошибка!",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
         }
 
-        public void SendMails(IQueryable<Recipient> emails)
+        public void SendMails(ObservableCollection<Recipient> emails)
         {
             foreach (Recipient email in emails)
             {
