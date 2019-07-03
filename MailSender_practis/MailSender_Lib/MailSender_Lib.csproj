@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase.cs" />
+    <Compile Include="Data\BaseEntityes\Entity.cs" />
+    <Compile Include="Data\BaseEntityes\Human.cs" />
+    <Compile Include="Data\BaseEntityes\NamedEntity.cs" />
     <Compile Include="Data\MailMessage.cs" />
     <Compile Include="Data\PasswordClass.cs" />
     <Compile Include="Data\Recipient.cs" />

@@ -1,9 +1,11 @@
-﻿namespace MailSender_Lib.Data
+﻿using MailSender_Lib.Data.BaseEntityes;
+
+namespace MailSender_Lib.Data
 {
     /// <summary>
     /// Класс письмо
     /// </summary>
-    public class MailMessage
+    public class MailMessage : Entity
     {
         /// <summary>
         /// Тема письма 

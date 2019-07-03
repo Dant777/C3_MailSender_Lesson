@@ -1,9 +1,11 @@
-﻿namespace MailSender_Lib.Data
+﻿using MailSender_Lib.Data.BaseEntityes;
+
+namespace MailSender_Lib.Data
 {
     /// <summary>
     /// Класс сервера от которого идет письмо
     /// </summary>
-    public class Server
+    public class Server : NamedEntity
     {
         public string Name { get; set; }
 

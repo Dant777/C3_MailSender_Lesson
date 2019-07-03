@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MailSender_Lib.Data.BaseEntityes;
 
 namespace MailSender_Lib.Data
 {
     /// <summary>
     /// Класс отправителя
     /// </summary>
-    public class Sender
+    public class Sender : Human
     {
-        /// <summary>
-        /// Имя отправителя
-        /// </summary>
-        public string Name { get; set; }
-        /// <summary>
-        /// Адрес отправителя
-        /// </summary>
-        public string Address { get; set; }
+
 
     }
 }

@@ -1,17 +1,12 @@
-﻿namespace MailSender_Lib.Data
+﻿ using MailSender_Lib.Data.BaseEntityes;
+
+ namespace MailSender_Lib.Data
 {
     /// <summary>
     /// Класс получателя
     /// </summary>
-    class Recipient
+    class Recipient : Human
     {
-        /// <summary>
-        /// Имя получателя
-        /// </summary>
-        public string Name { get; set; }
-        /// <summary>
-        /// Адрес получателя
-        /// </summary>
-        public string Address { get; set; }
+   
     }
 }
