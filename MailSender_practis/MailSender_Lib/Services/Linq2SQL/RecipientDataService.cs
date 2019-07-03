@@ -20,7 +20,7 @@ namespace MailSender_Lib.Services.Linq2SQL
             return _db.Recipient.ToArray();
         }
 
-        public void Create(Recipient item)
+        public void Add(Recipient item)
         {
             if (item.Id != 0) return;
             _db.Recipient.InsertOnSubmit(item);
@@ -33,7 +33,7 @@ namespace MailSender_Lib.Services.Linq2SQL
             _db.SubmitChanges();
         }
 
-        public void Update(Recipient item)
+        public void Edit(Recipient item)
         {
 
             

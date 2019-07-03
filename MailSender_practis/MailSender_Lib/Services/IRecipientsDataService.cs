@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace MailSender_Lib.Services
 {
-    public interface IRecipientsDataService
+    public interface IRecipientsDataService : IDataService<Recipient>
     {
-        IEnumerable<Recipient> GetAll();
 
-        void Update(Recipient item);
-        void Create(Recipient item);
-        void Delete(Recipient item);
-       
     }
 }

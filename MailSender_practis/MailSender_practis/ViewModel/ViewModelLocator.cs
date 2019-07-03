@@ -17,7 +17,10 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using MailSender_Lib.Services;
 using MailSender_Lib.Services.Linq2SQL;
+using MailSender_Lib.Services.InMemory;
 using MailSender_Lib.Data.Linq2SQL;
+
+
 
 
 namespace MailSender_practis.ViewModel
@@ -37,18 +40,19 @@ namespace MailSender_practis.ViewModel
 
             ////if (ViewModelBase.IsInDesignModeStatic)
             ////{
-            ////    // Create design time view services and models
+            ////    // Add design time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
             ////}
             ////else
             ////{
-            ////    // Create run time view services and models
+            ////    // Add run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
             SimpleIoc.Default.Register(() => new MailSenderDBContext());
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<MainWindowViewModel>();
-            SimpleIoc.Default.Register<IRecipientsDataService, RecipientDataServiceLinq2SQL>();
+            //SimpleIoc.Default.Register<IRecipientsDataService, RecipientDataServiceLinq2SQL>();
+            SimpleIoc.Default.Register<IRecipientsDataService, RecipientsDataServiceInMemory>();
         }
 
         public MainViewModel Main

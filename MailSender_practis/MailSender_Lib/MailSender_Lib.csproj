@@ -73,7 +73,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\IDataService.cs" />
+    <Compile Include="Services\IMailMessageDataService.cs" />
+    <Compile Include="Services\IMailMessagesService.cs" />
+    <Compile Include="Services\InMemory\DataInMemory.cs" />
+    <Compile Include="Services\InMemory\RecipientsDataServiceInMemory.cs" />
+    <Compile Include="Services\InMemory\SendersDataInMemory.cs" />
+    <Compile Include="Services\InMemory\ServerDataInMemory.cs" />
     <Compile Include="Services\IRecipientsDataService.cs" />
+    <Compile Include="Services\ISenderDataService.cs" />
+    <Compile Include="Services\IServerDataService.cs" />
     <Compile Include="Services\Linq2SQL\RecipientDataService.cs" />
   </ItemGroup>
   <ItemGroup />

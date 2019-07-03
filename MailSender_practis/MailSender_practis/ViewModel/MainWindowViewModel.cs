@@ -105,7 +105,7 @@ namespace MailSender_practis.ViewModel
 
         private void OnSaveRecipientCommandExecuted(Recipient recipient)
         {
-            _RecipientsDataService.Update(recipient);
+            _RecipientsDataService.Edit(recipient);
         }
 
         private bool CanSaveRecipientCommandExecuted(Recipient recipient)
@@ -129,7 +129,7 @@ namespace MailSender_practis.ViewModel
                 Name = "New recipient",
                 Address = "new_Email@mail.ru"
             };
-            _RecipientsDataService.Create(new_recipient);
+            _RecipientsDataService.Add(new_recipient);
             _Recipients.Add(new_recipient);
             CurrentRecipient = new_recipient;
         }
