@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using MailSender_Lib.Services;
 using MailSender_Lib.Services.Linq2SQL;
-using MailSender_Lib.Data.Linq2SQL;
+using MailSender_Lib.Data;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -20,6 +20,11 @@ namespace MailSender_practis.ViewModel
     public class MainWindowViewModel : ViewModelBase
     {
         private readonly IRecipientsDataService _RecipientsDataService;
+        private readonly ISenderDataService _SenderDataService;
+        private readonly IServerDataService _ServerDataService;
+        private readonly IMailMessageDataService _MailMessageDataService;
+        private readonly IMailSenderService _MailSenderService;
+
         private string _Title = "Расыльщик почты";
 
         
@@ -68,10 +73,20 @@ namespace MailSender_practis.ViewModel
         }
 
 
-        public MainWindowViewModel(IRecipientsDataService RecipientsDataService)
+        public MainWindowViewModel(
+            IRecipientsDataService RecipientsDataService,
+            ISenderDataService SenderDataService,
+            IServerDataService ServerDataService,
+            IMailMessageDataService MailMessageDataService, 
+            IMailSenderService MailSenderService
+            )
         {
             
             _RecipientsDataService = RecipientsDataService;
+            _SenderDataService = SenderDataService;
+            _ServerDataService = ServerDataService;
+            _MailMessageDataService = MailMessageDataService;
+            _MailSenderService = MailSenderService;
             UpdateData();
             UpdateDateCommand = new RelayCommand(OnUpdateDataCommandExecute, CanUpdateDataCommandExecute);
 

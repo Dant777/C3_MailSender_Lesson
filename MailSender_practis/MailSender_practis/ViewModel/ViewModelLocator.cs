@@ -1,4 +1,4 @@
-/*
+ /*
   In App.xaml:
   <Application.Resources>
       <vm:ViewModelLocator xmlns:vm="clr-namespace:MailSender_practis"
@@ -48,12 +48,19 @@ namespace MailSender_practis.ViewModel
             ////    // Add run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
-            SimpleIoc.Default.Register(() => new MailSenderDBContext());
-            SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<MainWindowViewModel>();
+
+            var services = SimpleIoc.Default;
+            services.Register(() => new MailSenderDBContext());
+            services.Register<MainViewModel>();
+            services.Register<MainWindowViewModel>();
             //SimpleIoc.Default.Register<IRecipientsDataService, RecipientDataServiceLinq2SQL>();
-            SimpleIoc.Default.Register<IRecipientsDataService, RecipientsDataServiceInMemory>();
-        }
+            services.Register<IRecipientsDataService, RecipientsDataServiceInMemory>();
+            services.Register<ISenderDataService, SendersDataInMemory>();
+            services.Register<IServerDataService, ServerDataInMemory>();
+            services.Register<IMailMessageDataService, MailMessagesDataInMemory>();
+            services.Register<IMailSenderService, SmtpMailSenderServicr>();
+
+        } 
 
         public MainViewModel Main
         {

@@ -5,7 +5,7 @@
     /// <summary>
     /// Класс получателя
     /// </summary>
-    class Recipient : Human
+    public class Recipient : Human
     {
    
     }
