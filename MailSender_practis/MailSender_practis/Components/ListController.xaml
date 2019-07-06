@@ -13,6 +13,7 @@
             <Setter Property="Padding" Value="3,0"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Margin" Value="2,0"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
         </Style>
     </UserControl.Resources>
     <DockPanel>
@@ -72,6 +73,6 @@
             </Button>
         </StackPanel>
 
-        <ComboBox></ComboBox>
+        <ComboBox ItemsSource="{Binding ItemSource}"></ComboBox>
     </DockPanel>
 </UserControl>

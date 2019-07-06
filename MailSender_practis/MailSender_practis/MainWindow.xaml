@@ -52,65 +52,7 @@
                     </Grid.RowDefinitions>
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
-                            <Label>Сервера</Label>
-                            <ComboBox
-                                x:Name="cbServerSelect"
-                                MinWidth="100"
-                                MaxWidth="120"
-                                DisplayMemberPath="Name"
-                                ItemsSource="{Binding Servers}"
-                                SelectedIndex="0" />
-                            <Button>
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:ImageAwesome
-                                        Height="16"
-                                        Margin="0,0,3,0"
-                                        Foreground="Green"
-                                        Icon="Plus">
-                                        <fa:ImageAwesome.Effect>
-                                            <DropShadowEffect
-                                                BlurRadius="1"
-                                                ShadowDepth="2"
-                                                Color="Black" />
-                                        </fa:ImageAwesome.Effect>
-                                    </fa:ImageAwesome>
-                                    <TextBlock Text="Добавить" />
-                                </StackPanel>
-                            </Button>
-                            <Button>
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:ImageAwesome
-                                        Height="16"
-                                        Margin="0,0,3,0"
-                                        Foreground="Blue"
-                                        Icon="Pencil">
-                                        <fa:ImageAwesome.Effect>
-                                            <DropShadowEffect
-                                                BlurRadius="1"
-                                                ShadowDepth="2"
-                                                Color="Black" />
-                                        </fa:ImageAwesome.Effect>
-                                    </fa:ImageAwesome>
-                                    <TextBlock Text="Редактировать" />
-                                </StackPanel>
-                            </Button>
-                            <Button>
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:ImageAwesome
-                                        Height="16"
-                                        Margin="0,0,3,0"
-                                        Foreground="Red"
-                                        Icon="Times">
-                                        <fa:ImageAwesome.Effect>
-                                            <DropShadowEffect
-                                                BlurRadius="1"
-                                                ShadowDepth="2"
-                                                Color="Black" />
-                                        </fa:ImageAwesome.Effect>
-                                    </fa:ImageAwesome>
-                                    <TextBlock Text="Удалить" />
-                                </StackPanel>
-                            </Button>
+                            <cmp:ListController PanelName="Сервера" />
                         </ToolBar>
                         <ToolBar Band="1" BandIndex="0">
                             <Label>Отправители</Label>
