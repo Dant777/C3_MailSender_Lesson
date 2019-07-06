@@ -85,6 +85,8 @@
     <Compile Include="Services\ISenderDataService.cs" />
     <Compile Include="Services\IServerDataService.cs" />
     <Compile Include="Services\Linq2SQL\RecipientDataService.cs" />
+    <Compile Include="Services\SmtpMailSender.cs" />
+    <Compile Include="Services\SmtpMailSenderServicr.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
