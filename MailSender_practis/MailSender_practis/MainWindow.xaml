@@ -52,7 +52,16 @@
                     </Grid.RowDefinitions>
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
-                            <cmp:ListController PanelName="Сервера" />
+                            <cmp:ListController
+                                ItemSource="{Binding Servers}"
+                                PanelName="Сервера"
+                                SelectedIndex="1">
+                                <cmp:ListController.ItemTemplete>
+                                    <DataTemplate DataType="data:Server">
+                                        <TextBox Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </cmp:ListController.ItemTemplete>
+                            </cmp:ListController>
                         </ToolBar>
                         <ToolBar Band="1" BandIndex="0">
                             <Label>Отправители</Label>

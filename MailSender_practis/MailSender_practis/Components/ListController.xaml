@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSender_practis.Components"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             MinWidth="500"
              mc:Ignorable="d" 
              d:DesignHeight="37.101" d:DesignWidth="555.852">
     <UserControl.Resources>
@@ -16,11 +16,11 @@
             <Setter Property="BorderThickness" Value="0"></Setter>
         </Style>
     </UserControl.Resources>
-    <DockPanel>
+    <DockPanel DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ListController}}}">
         <Label VerticalAlignment="Center" Content="{Binding PanelName}"/>
 
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
-            <Button>
+            <Button Command="{Binding CreateCommand}">
                 <StackPanel Orientation="Horizontal">
                     <fa:ImageAwesome
                         Height="16"
@@ -37,7 +37,7 @@
                     <TextBlock>Добавить</TextBlock>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Command="{Binding EditCommand}" CommandParameter="{Binding SelectedItem}">
                 <StackPanel Orientation="Horizontal">
                     <fa:ImageAwesome
                         Height="19"
@@ -54,7 +54,7 @@
                     <TextBlock>Редактировать</TextBlock>
                 </StackPanel>
             </Button>
-            <Button>
+            <Button Command="{Binding RemoveCommand}" CommandParameter="{Binding SelectedItem}">
                 <StackPanel Orientation="Horizontal">
                     <fa:ImageAwesome
                         Height="19"
@@ -73,6 +73,9 @@
             </Button>
         </StackPanel>
 
-        <ComboBox ItemsSource="{Binding ItemSource}"></ComboBox>
+        <ComboBox ItemsSource="{Binding ItemSource}"
+                  SelectedItem="{Binding SelectedItem}"
+                  SelectedIndex="{Binding SelectedIndex}"
+                  ItemTemplate="{Binding ItemTemplete}"/>
     </DockPanel>
 </UserControl>

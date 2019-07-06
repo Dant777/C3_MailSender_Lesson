@@ -59,11 +59,83 @@ namespace MailSender_practis.Components
                 new PropertyMetadata(default(object)));
         public object SelectedItem
         {
-            get => (IEnumerable)GetValue(ItemSourceProperty);
-            set => SetValue(ItemSourceProperty, value);
+            get => (IEnumerable)GetValue(SelectedItemProperty);
+            set => SetValue(SelectedItemProperty, value);
         }
         #endregion
 
+        #region CreateCommand : ICommand - Команда - создать новый элемент 
+        public static readonly DependencyProperty CreateCommandProperty =
+            DependencyProperty.Register(
+                nameof(CreateCommand),
+                typeof(ICommand),
+                typeof(ListController),
+                new PropertyMetadata(default(ICommand)));
+        public ICommand CreateCommand
+        {
+            get => (ICommand)GetValue(CreateCommandProperty);
+            set => SetValue(CreateCommandProperty, value);
+        }
+        #endregion
+
+        #region EditCommand : ICommand - Команда - Редактированть элемент 
+        public static readonly DependencyProperty EditCommandProperty =
+            DependencyProperty.Register(
+                nameof(EditCommand),
+                typeof(ICommand),
+                typeof(ListController),
+                new PropertyMetadata(default(ICommand)));
+        public ICommand EditCommand
+        {
+            get => (ICommand)GetValue(EditCommandProperty);
+            set => SetValue(EditCommandProperty, value);
+        }
+        #endregion
+
+        #region RemoveCommand : ICommand - Команда - Удалить элемент 
+        public static readonly DependencyProperty RemoveCommandProperty =
+            DependencyProperty.Register(
+                nameof(RemoveCommand),
+                typeof(ICommand),
+                typeof(ListController),
+                new PropertyMetadata(default(ICommand)));
+        public ICommand RemoveCommand
+        {
+            get => (ICommand)GetValue(RemoveCommandProperty);
+            set => SetValue(RemoveCommandProperty, value);
+        }
+        #endregion
+
+        #region SelectedIndex : int - Номер выбранного элемента 
+        public static readonly DependencyProperty SelectedIndexProperty =
+            DependencyProperty.Register(
+                nameof(SelectedIndex),
+                typeof(int),
+                typeof(ListController),
+                new PropertyMetadata(default(int)));
+        public int SelectedIndex
+        {
+            get => (int)GetValue(SelectedIndexProperty);
+            set => SetValue(SelectedIndexProperty, value);
+        }
+        #endregion
+
+        #region ItemTemplete : DataTemplate - Шаблон визуализации
+        /// <summary> название панели </summary>
+        public static readonly DependencyProperty ItemTempleteProperty =
+            DependencyProperty.Register(
+                nameof(ItemTemplete),
+                typeof(DataTemplate),
+                typeof(ListController),
+                new PropertyMetadata(default(DataTemplate)));
+
+        public DataTemplate ItemTemplete
+        {
+            get => (DataTemplate)GetValue(ItemTempleteProperty);
+            set => SetValue(ItemTempleteProperty, value);
+        }
+
+        #endregion
         public ListController()
         {
             InitializeComponent();
