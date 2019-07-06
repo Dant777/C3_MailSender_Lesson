@@ -13,7 +13,7 @@ namespace MailSender_Lib.Services.InMemory
         {
             for (int i = 1; i < 10; i++)
             {
-                _Items.Add(new Sender() {Id = 1, Name = $"Sender Name{i}", Address = $"SenderMail№{i}@mail.com" });
+                _Items.Add(new Sender() {Id = 1, Name = $"Sender Name{i}", Address = $"sender{i}@mail.com" });
             }
         }
         public override void Edit(Sender item)

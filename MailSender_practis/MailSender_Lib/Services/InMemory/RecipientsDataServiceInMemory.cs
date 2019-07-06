@@ -22,7 +22,7 @@ namespace MailSender_Lib.Services.InMemory
 
        
 
-        public void Edit(Recipient item)
+        public override void Edit(Recipient item)
         {
             if(item is null) throw new ArgumentNullException(nameof(item));
 

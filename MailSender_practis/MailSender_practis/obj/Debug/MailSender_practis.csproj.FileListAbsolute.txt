@@ -38,3 +38,5 @@ F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\Ma
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\View\ResipientsInfoViewer.baml
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\View\RecipientInfoEditor.g.cs
 F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\View\RecipientInfoEditor.baml
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\Components\ListController.g.cs
+F:\Обучение\GeekBrain\С#_level3\MailSender_Lesson\MailSender_practis\MailSender_practis\obj\Debug\Components\ListController.baml

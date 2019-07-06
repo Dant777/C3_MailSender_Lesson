@@ -21,6 +21,7 @@ using MailSender_Lib;
 using System.Data;
 using System.Windows.Threading;
 using System.Collections;
+using Recipient = MailSender_Lib.Data.Recipient;
 
 namespace MailSender_practis
 { 
@@ -32,15 +33,15 @@ namespace MailSender_practis
         public MainWindow()
         {
             InitializeComponent();
-            cbSenderSelect.ItemsSource = VariablesClass.Senders;
-            cbSenderSelect.DisplayMemberPath = "Key";
-            cbSenderSelect.SelectedValuePath = "Value";
+            //cbSenderSelect.ItemsSource = VariablesClass.Senders;
+            //cbSenderSelect.DisplayMemberPath = "Key";
+            //cbSenderSelect.SelectedValuePath = "Value";
             
 
-            cbServerSelect.ItemsSource = SmtpServer.Servers;
-            cbServerSelect.DisplayMemberPath = "Key";
-            cbServerSelect.SelectedValuePath = "Value";
-            cbServerSelect.SelectedIndex = 0;
+            //cbServerSelect.ItemsSource = SmtpServer.Servers;
+            //cbServerSelect.DisplayMemberPath = "Key";
+            //cbServerSelect.SelectedValuePath = "Value";
+            //cbServerSelect.SelectedIndex = 0;
 
             dtSendDateTime = new DateTime();
             tbTimePicker.Text = dtSendDateTime.TimeOfDay.ToString();
@@ -124,53 +125,53 @@ namespace MailSender_practis
         /// <param name="e"></param>
         private void BtnSendToPlan_OnClick(object sender, RoutedEventArgs e)
         {
-            recInfoViewer = new ResipientsInfoViewer();
-            recipientSelect = new ObservableCollection<Recipient>();
+        //    recInfoViewer = new ResipientsInfoViewer();
+        //    recipientSelect = new ObservableCollection<Recipient>();
             
-            List<Recipient> recipientsList = (List<Recipient>)recInfoViewer.dtRecipientSelect.SelectedItems.OfType<Recipient>().ToList();
+        //    List<Recipient> recipientsList = (List<Recipient>)recInfoViewer.dtRecipientSelect.SelectedItems.OfType<Recipient>().ToList();
                
-            int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());  // port server
-            //получатель
-            //var recipientSelect = (Recipient)recInfoViewer.dtRecipientSelect.SelectedValue;
-            //string recipName = recipientSelect.Name;
-            //string recipAddress = recipientSelect.Address;
+        //    int serverPort = Convert.ToInt32(cbServerSelect.SelectedValue.ToString());  // port server
+        //    //получатель
+        //    //var recipientSelect = (Recipient)recInfoViewer.dtRecipientSelect.SelectedValue;
+        //    //string recipName = recipientSelect.Name;
+        //    //string recipAddress = recipientSelect.Address;
 
-            SchedulerClass sc = new SchedulerClass();
-            TimeSpan tsSendTime = sc.GetSendTime(tbTimePicker.Text);
-            dtSendDateTime = (cldSchedulDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
+        //    SchedulerClass sc = new SchedulerClass();
+        //    TimeSpan tsSendTime = sc.GetSendTime(tbTimePicker.Text);
+        //    dtSendDateTime = (cldSchedulDateTimes.SelectedDate ?? DateTime.Today).Add(tsSendTime);
             
-            if (dtSendDateTime < DateTime.Now)
-            {
-                MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
-                return;
-            }
+        //    if (dtSendDateTime < DateTime.Now)
+        //    {
+        //        MessageBox.Show("Дата и время отправки писем не могут быть раньше, чем настоящее время");
+        //        return;
+        //    }
 
 
-            if (tsSendTime == new TimeSpan())
-            {
-                MessageBox.Show("Некорректный формат даты");
-                return;
-            }
-            //письмо
-            if (txtObject.Text == "")
-            {
-                MessageBox.Show("Нет темы письма", "Тема письма",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                MainTabControle.SelectedItem = tabPlanner;
-                txtObject.Focus();
-                return;
-            }
-            if (txtBody.Text == "")
-            {
-                MessageBox.Show("Письмо пустое", "Пусто",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                MainTabControle.SelectedItem = tabPlanner;
-                txtBody.Focus();
-                return;
-            }
-            EmailSendServiceClass emailSender = new EmailSendServiceClass(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), 
-                                                                            cbServerSelect.Text, serverPort, txtBody.Text, txtObject.Text);
-            sc.SendEmails(dtSendDateTime, emailSender,recipientSelect);
+        //    if (tsSendTime == new TimeSpan())
+        //    {
+        //        MessageBox.Show("Некорректный формат даты");
+        //        return;
+        //    }
+        //    //письмо
+        //    if (txtObject.Text == "")
+        //    {
+        //        MessageBox.Show("Нет темы письма", "Тема письма",
+        //            MessageBoxButton.OK, MessageBoxImage.Error);
+        //        MainTabControle.SelectedItem = tabPlanner;
+        //        txtObject.Focus();
+        //        return;
+        //    }
+        //    if (txtBody.Text == "")
+        //    {
+        //        MessageBox.Show("Письмо пустое", "Пусто",
+        //            MessageBoxButton.OK, MessageBoxImage.Error);
+        //        MainTabControle.SelectedItem = tabPlanner;
+        //        txtBody.Focus();
+        //        return;
+        //    }
+        //    EmailSendServiceClass emailSender = new EmailSendServiceClass(cbSenderSelect.Text, cbSenderSelect.SelectedValue.ToString(), 
+        //                                                                    cbServerSelect.Text, serverPort, txtBody.Text, txtObject.Text);
+        //    sc.SendEmails(dtSendDateTime, emailSender,recipientSelect);
 
         }
     }
