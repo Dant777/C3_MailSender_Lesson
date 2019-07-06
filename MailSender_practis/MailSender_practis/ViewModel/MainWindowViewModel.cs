@@ -14,6 +14,7 @@ using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System.ComponentModel;
 using System.Windows.Data;
+using MailSender_Lib.Data.BaseEntityes;
 
 namespace MailSender_practis.ViewModel
 {
@@ -59,7 +60,9 @@ namespace MailSender_practis.ViewModel
             get => _Recipients;
             private set => Set(ref _Recipients, value);
         }
-
+        public ObservableCollection<Server> Servers { get; } = new ObservableCollection<Server>();
+        public ObservableCollection<Sender> Senders { get; } = new ObservableCollection<Sender>();
+        public ObservableCollection<MailMessage> MailMessages { get; } = new ObservableCollection<MailMessage>();
 
         private Recipient _CurrentRecipient;
 
@@ -87,13 +90,13 @@ namespace MailSender_practis.ViewModel
             _ServerDataService = ServerDataService;
             _MailMessageDataService = MailMessageDataService;
             _MailSenderService = MailSenderService;
+
+
             UpdateData();
             UpdateDateCommand = new RelayCommand(OnUpdateDataCommandExecute, CanUpdateDataCommandExecute);
 
             _itemSourceList = new CollectionViewSource() { Source = Recipients };
             ItemsView = _itemSourceList.View;
-
-    
             CreateRecipientCommand =
                 new RelayCommand(OnCreateRecipientCommandExecuted, CanCreateRecipientCommandExecuted);
             SaveRecipientCommand =
@@ -180,6 +183,18 @@ namespace MailSender_practis.ViewModel
             
             Recipients = new ObservableCollection<Recipient>(_RecipientsDataService.GetAll());
 
+            void UpdateData<T>(IDataService<T> Service, ObservableCollection<T> Collection)
+                where T : Entity
+            {
+                Collection.Clear();
+                foreach (var entity in Service.GetAll())
+                {
+                  Collection.Add(entity);  
+                }
+            }
+            UpdateData(_SenderDataService,Senders);
+            UpdateData(_ServerDataService,Servers);
+            UpdateData(_MailMessageDataService,MailMessages);
         }
 
         #region Фильтер по имени

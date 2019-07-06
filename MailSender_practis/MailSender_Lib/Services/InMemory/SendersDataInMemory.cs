@@ -9,6 +9,13 @@ namespace MailSender_Lib.Services.InMemory
 {
     public class SendersDataInMemory : DataInMemory<Sender>, ISenderDataService
     {
+        public SendersDataInMemory()
+        {
+            for (int i = 1; i < 10; i++)
+            {
+                _Items.Add(new Sender() {Id = 1, Name = $"Sender Name{i}", Address = $"SenderMail№{i}@mail.com" });
+            }
+        }
         public override void Edit(Sender item)
         {
             if (item is null) throw new ArgumentNullException(nameof(item));
